@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyen Dinh Duy | Technology Specialist</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <title>Đỗ Gia Đăng | Digital Transformation Expert</title>
+    <link rel="icon" type="image/png" href="dangdg_sign_personalWebsite.png">
+    <link rel="apple-touch-icon" href="dangdg_sign_personalWebsite.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -93,22 +93,6 @@
             filter: drop-shadow(0 4px 8px rgba(0, 199, 255, 0.2));
         }
 
-        /* Alternative wordart style */
-        .logo-wordart {
-            font-family: 'Times New Roman', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #f1f5f9, #e2e8f0, #cbd5e1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 
-                2px 2px 0px rgba(0, 199, 255, 0.1),
-                4px 4px 0px rgba(125, 18, 255, 0.1);
-            transform: perspective(500px) rotateX(15deg);
-            letter-spacing: 2px;
-        }
-
         .nav-links {
             display: flex;
             gap: 30px;
@@ -156,6 +140,109 @@
             transition: var(--transition);
             background: var(--primary);
             border-radius: 2px;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(125, 18, 255, 0.2);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .current-flag {
+            width: 28px;
+            height: 20px;
+            border-radius: 3px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(125, 18, 255, 0.3);
+            border-radius: 15px;
+            padding: 10px 0;
+            min-width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            z-index: 1002;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: rgba(0, 199, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .language-option.active {
+            background: rgba(0, 199, 255, 0.15);
+            color: var(--primary);
+        }
+
+        .flag {
+            width: 32px;
+            height: 22px;
+            border-radius: 3px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .flag.en {
+            background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><defs><clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath></defs><g clip-path="url(%23a)"><path d="M0 0v30h60V0z" fill="%23012169"/><path d="M0 0l60 30m0-30L0 30" stroke="%23fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="%23C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="%23fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="%23C8102E" stroke-width="6"/></g></svg>');
+        }
+
+        .flag.zh {
+            background-image: url('ChinaFlag.png');
+        }
+
+        .flag.vi {
+            background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="%23DA020E"/><polygon points="450,120 485,210 580,210 508,265 543,355 450,300 357,355 392,265 320,210 415,210" fill="%23FFFF00" stroke="%23FFF000" stroke-width="2"/></svg>');
         }
 
         /* Hero Section */
@@ -469,7 +556,7 @@
             overflow: hidden;
             background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
             background-size: 200% 200%;
-            padding: 3px;
+            padding: 4px;
             transition: var(--transition);
             position: relative;
             animation: gradientShift 4s ease-in-out infinite;
@@ -508,59 +595,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
+            object-position: center -8%;
             border-radius: 50%;
             background: var(--darker);
             display: block;
             filter: contrast(1.1) brightness(1.05);
-        }
-
-        .about-avatar:before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, 
-                rgba(0, 199, 255, 0.8), 
-                rgba(125, 18, 255, 0.8), 
-                rgba(255, 0, 199, 0.6),
-                rgba(0, 199, 255, 0.8));
-            background-size: 300% 300%;
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-            animation: gradientRotate 6s linear infinite;
-            filter: blur(8px);
-        }
-
-        @keyframes gradientRotate {
-            0% { 
-                background-position: 0% 50%;
-                transform: rotate(0deg);
-            }
-            25% { 
-                background-position: 50% 0%;
-                transform: rotate(90deg);
-            }
-            50% { 
-                background-position: 100% 50%;
-                transform: rotate(180deg);
-            }
-            75% { 
-                background-position: 50% 100%;
-                transform: rotate(270deg);
-            }
-            100% { 
-                background-position: 0% 50%;
-                transform: rotate(360deg);
-            }
-        }
-
-        .about-avatar:hover:before {
-            opacity: 0.6;
+            transform: scale(1.1);
         }
 
         .about-content {
@@ -606,22 +646,267 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive for About Card */
-        @media (max-width: 768px) {
-            .about-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
-            
-            .about-avatar {
-                width: 160px;
-                height: 160px;
-            }
-            
-            .about-highlights {
-                justify-content: center;
-            }
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Education specific styles */
+        .education-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-main {
+            background: linear-gradient(135deg, rgba(125, 18, 255, 0.1), rgba(0, 199, 255, 0.1));
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(125, 18, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .education-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .education-main:hover::before {
+            transform: translateX(100%);
+        }
+
+        .education-main:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 199, 255, 0.2);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 199, 255, 0.3);
+        }
+
+        .education-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            animation: iconPulse 3s infinite;
+            z-index: -1;
+        }
+
+        .education-icon i {
+            font-size: 2rem;
+            color: white;
+            z-index: 1;
+        }
+
+        .education-title-section h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .education-title-section .university {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-title-section .duration {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .education-title-section .gpa {
+            background: rgba(0, 199, 255, 0.1);
+            border: 1px solid rgba(0, 199, 255, 0.3);
+            border-radius: 15px;
+            padding: 8px 16px;
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(125, 18, 255, 0.15);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0, 199, 255, 0.15);
+        }
+
+        .project-card h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .project-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-card li {
+            color: var(--gray);
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .project-card li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .certifications-section {
+            margin-top: 50px;
+        }
+
+        .cert-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .cert-category {
+            background: linear-gradient(135deg, rgba(125, 18, 255, 0.1), rgba(0, 199, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(125, 18, 255, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-category::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 199, 255, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s;
+        }
+
+        .cert-category:hover::after {
+            transform: scale(1);
+        }
+
+        .cert-category:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 199, 255, 0.2);
+        }
+
+        .cert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .cert-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .cert-category h4 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .cert-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .cert-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--primary);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .cert-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .cert-item:last-child {
+            margin-bottom: 0;
         }
 
         /* Timeline */
@@ -629,32 +914,14 @@
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .timeline:before {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 3%;
-            right: 3%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-            z-index: 1;
         }
 
         .timeline-item {
             position: relative;
-            width: calc(20% - 12px);
-            padding: 0;
+            margin-bottom: 80px;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
-            z-index: 2;
         }
 
         .timeline-item.in-view {
@@ -662,65 +929,98 @@
             transform: translateY(0);
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 0;
-        }
-
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            border: 4px solid var(--darker);
-            z-index: 3;
-            box-shadow: 0 0 0 2px rgba(0, 199, 255, 0.3);
-        }
-
         .timeline-content {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 25px;
+            padding: 40px;
             border: 1px solid rgba(125, 18, 255, 0.1);
             transition: var(--transition);
-            transform-style: preserve-3d;
-            transform: perspective(1000px) rotateY(0deg);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-top: 80px;
-            position: relative;
+            margin-left: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
         }
 
         .timeline-content:hover {
-            transform: perspective(1000px) rotateY(3deg) translateY(-10px);
+            transform: translateY(-10px);
             border-color: var(--primary);
             box-shadow: 0 20px 40px rgba(0, 199, 255, 0.2);
+        }
+
+        .timeline-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+        }
+
+        .timeline-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 199, 255, 0.3);
+        }
+
+        .timeline-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .timeline-date {
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: block;
+            font-size: 1.1rem;
         }
 
         .timeline-title {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
+            color: var(--light);
+            line-height: 1.3;
         }
 
         .timeline-company {
-            color: var(--gray);
-            margin-bottom: 15px;
+            color: var(--secondary);
+            margin-bottom: 25px;
             display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        .timeline-content li {
+            color: var(--gray);
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .timeline-content li:before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 0.9rem;
         }
 
         /* Skills Section */
@@ -818,149 +1118,12 @@
             line-height: 1.6;
         }
 
-        /* Technical Skills Grid */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .tech-category {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 15px;
-            transition: var(--transition);
-        }
-
-        .tech-category:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 199, 255, 0.05);
-        }
-
-        .tech-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-
-        /* Publications */
-        .publication-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .publication-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(125, 18, 255, 0.1);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .publication-item.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .publication-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 199, 255, 0.1);
-        }
-
-        .publication-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .publication-conference {
-            color: var(--gray);
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .publication-doi a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .publication-doi a:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .publication-doi a:hover {
-            color: var(--primary);
-        }
-
-        .publication-doi a:hover:after {
-            width: 100%;
-        }
-
-        /* In-Process Badge Styling */
-        .in-process-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(0, 199, 255, 0.3);
-            animation: badgePulse 2s infinite alternate;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes badgePulse {
-            0% { 
-                transform: scale(1); 
-                box-shadow: 0 2px 8px rgba(0, 199, 255, 0.3);
-            }
-            100% { 
-                transform: scale(1.05); 
-                box-shadow: 0 4px 12px rgba(0, 199, 255, 0.5);
-            }
-        }
-
-        .in-process-badge:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .in-process-badge:hover:before {
-            left: 100%;
-        }
-
         /* Contact */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1200px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -1009,33 +1172,6 @@
         .contact-info {
             color: var(--gray);
             margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-5px) scale(1.2);
-            background: rgba(0, 199, 255, 0.1);
-            box-shadow: 0 0 15px rgba(0, 199, 255, 0.3);
         }
 
         /* Scroll to top button */
@@ -1097,6 +1233,30 @@
                 z-index: 1001;
             }
             
+            .language-selector {
+                margin-left: 10px;
+            }
+            
+            .language-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .current-flag {
+                width: 18px;
+                height: 13px;
+            }
+            
+            .language-dropdown {
+                right: -10px;
+                min-width: 140px;
+            }
+            
+            .flag {
+                width: 20px;
+                height: 15px;
+            }
+            
             .hamburger.active .bar:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
@@ -1109,27 +1269,41 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
             
-            .timeline {
+            .about-card {
                 flex-direction: column;
-                gap: 30px;
+                text-align: center;
+                padding: 30px 20px;
             }
             
-            .timeline:before {
-                display: none;
+            .about-avatar {
+                width: 160px;
+                height: 160px;
             }
             
-            .timeline-item {
-                width: 100%;
-                padding: 0;
-                left: 0 !important;
-            }
-            
-            .timeline-item:before {
-                display: none;
+            .about-highlights {
+                justify-content: center;
             }
             
             .timeline-content {
-                margin-top: 0;
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+            
+            .timeline-image {
+                width: 100px;
+                height: 100px;
+                align-self: center;
+            }
+            
+            .timeline-info {
+                text-align: center;
+            }
+            
+            .timeline-content ul {
+                text-align: left;
             }
             
             .cta-buttons {
@@ -1140,13 +1314,40 @@
                 grid-template-columns: 1fr;
             }
             
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            /* Education responsive */
+            .education-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .education-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cert-categories {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cert-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cert-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -1162,18 +1363,39 @@
 
     <!-- Header -->
     <header>
-        <div class="container">        <nav>
-            <div class="logo">
-                <img src="logo.png" alt="Udy Logo">
-            </div>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="dangdg_sign_personalWebsite.png" alt="Dang Logo">
+                </div>
                 <ul class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#research">Research</a>
-                    <a href="#publications">Publications</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#about" data-en="About" data-zh="关于" data-vi="Giới thiệu">About</a>
+                    <a href="#experience" data-en="Experience" data-zh="经验" data-vi="Kinh nghiệm">Experience</a>
+                    <a href="#skills" data-en="Skills" data-zh="技能" data-vi="Kỹ năng">Skills</a>
+                    <a href="#education" data-en="Education" data-zh="教育" data-vi="Học vấn">Education</a>
+                    <a href="#contact" data-en="Contact" data-zh="联系" data-vi="Liên hệ">Contact</a>
                 </ul>
+                <div class="language-selector">
+                    <div class="language-btn">
+                        <div class="current-flag flag en"></div>
+                        <span>EN</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 5px;"></i>
+                    </div>
+                    <div class="language-dropdown">
+                        <div class="language-option active" data-lang="en">
+                            <div class="flag en"></div>
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" data-lang="zh">
+                            <div class="flag zh"></div>
+                            <span>中文</span>
+                        </div>
+                        <div class="language-option" data-lang="vi">
+                            <div class="flag vi"></div>
+                            <span>Tiếng Việt</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -1191,14 +1413,14 @@
         <div class="container">
             <div class="hero-content">
                 <h1>
-                    <span class="title-line"><span class="title-word">Transforming</span></span>
-                    <span class="title-line"><span class="title-word">Ideas</span> <span class="title-word">into</span></span>
-                    <span class="title-line"><span class="title-word">Tech</span> <span class="title-word">Innovations</span></span>
+                    <span class="title-line"><span class="title-word" data-key="heroWord1">Digital</span></span>
+                    <span class="title-line"><span class="title-word" data-key="heroWord2">Transformation</span></span>
+                    <span class="title-line"><span class="title-word" data-key="heroWord3">Expert</span></span>
                 </h1>
-                <p>Technology Integration Specialist | AI Researcher | Educator with a passion for advancing AI applications in everyday life and developing cutting-edge solutions for digital transformation.</p>
+                <p>MES Solutions Specialist | Manufacturing Innovation Leader | ISA-95 Architect with a passion for transforming manufacturing processes from zero to hero through cutting-edge digital technologies.</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#skills" class="btn btn-secondary">View Skills</a>
+                    <a href="#contact" class="btn btn-primary" data-key="getInTouch">Get In Touch</a>
+                    <a href="#experience" class="btn btn-secondary">View Experience</a>
                 </div>
             </div>
         </div>
@@ -1211,25 +1433,24 @@
                 <h2>About Me</h2>
             </div>
             <div class="about-card">
-                
                 <div class="about-content">
-                    <h3>Duy Nguyen Dinh</h3>
+                    <h3 data-key="fullName">Đỗ Gia Đăng</h3>
                     <p>
-                        I'm driven to become an educator and researcher who inspires, relentlessly advancing how we learn and democratizing the power of artificial intelligence for tangible, everyday impact. My journey is fueled by mastery across the full technology solution stack – mastering the infrastructure (Network Operations), orchestrating efficient lifecycles (DevOps), engineering intelligent physical interactions (Robotics), and harnessing cognitive power (AI Integration). This deep, cross-layer expertise empowers me to architect and deliver integrated solutions that seamlessly bridge cutting-edge technology with pressing real-world challenges, spanning the entire spectrum from infrastructure to intelligent applications.
+                        I am a Digital Transformation Expert with a strong passion for digital transformation journey and extensive experience in implementing MES and related solutions in manufacturing facilities, from zero to hero. I am confident in my ability to collaborate with colleagues from many different departments within the organization or partnership vendors, to help factory procedures be actually transformed in positive directions.
                     </p>
                     <p>
-                        As Co-Founder of DigiFact Solution, I spearhead R&D in end-to-end digital transformation. We craft bespoke solutions, empowering businesses through the development of robust operational platforms (MES, CRM, ERP), strategic AI implementation, and the cultivation of high-performance DevOps cultures – engineered holistically to unlock sustainable innovation and decisive competitive advantage.
+                        My expertise spans across the entire digital transformation ecosystem, from collecting user needs and workflow analysis to architecting unified solutions based on ISA-95 structure. I specialize in developing MES software with exceptional user experience, covering exceptional cases, and integrating various manufacturing systems for optimal performance.
                     </p>
                     <div class="about-highlights">
-                        <span class="highlight-badge">Artificial Intelligence</span>
-                        <span class="highlight-badge">Full Stack Developer</span>
-                        <span class="highlight-badge">Robotics</span>
-                        <span class="highlight-badge">Educator</span>
-                        <span class="highlight-badge">Entrepreneur</span>
+                        <span class="highlight-badge" data-key="digitalTransformation">Digital Transformation</span>
+                        <span class="highlight-badge" data-key="mesDevelopment">MES Development</span>
+                        <span class="highlight-badge" data-key="isa95Architecture">ISA-95 Architecture</span>
+                        <span class="highlight-badge" data-key="manufacturingInnovation">Manufacturing Innovation</span>
+                        <span class="highlight-badge" data-key="systemIntegration">System Integration</span>
                     </div>
                 </div>
                 <div class="about-avatar">
-                    <img src="avt.jpg" alt="Nguyen Dinh Duy Avatar">
+                    <img src="avatar.jpg" alt="Do Gia Dang Avatar">
                 </div>
             </div>
         </div>
@@ -1242,75 +1463,105 @@
                 <h2>Professional Experience</h2>
             </div>
             <div class="timeline">
-                <!-- Sunteco -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Sep 2022 - Dec 2022</span>
-                        <h3 class="timeline-title">DevOps Intern</h3>
-                        <span class="timeline-company">Sunteco Joint Stock Company</span>
-                        <ul>
-                            <li>Deployed and managed CI/CD systems</li>
-                            <li>Implemented GitOps solutions for cloud environments</li>
-                            <li>Researched OpenStack platform for VM deployment</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- ASELAB -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Oct 2023 - Present</span>
-                        <h3 class="timeline-title">AI & Robotics Researcher and Team Leader</h3>
-                        <span class="timeline-company">ASELAB (HUST)</span>
-                        <ul>
-                            <li>Lead research teams in AI, Robotics, and IoT domains</li>
-                            <li>Developed drone hardware systems and edge AI solutions</li>
-                            <li>Built real-time communication systems for disaster response</li>
-                            <li>Managed railway monitoring system project deployment</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- FFT Solution -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jan 2024 - Aug 2024</span>
-                        <h3 class="timeline-title">DevOps Engineer</h3>
-                        <span class="timeline-company">FFT Solution Company</span>
-                        <ul>
-                            <li>Designed and operated multi-layer network systems with ESXi, RouterOS, pfSense</li>
-                            <li>Managed infrastructure and CI/CD systems for SmartCity and E-learning projects</li>
-                            <li>Built automated deployment pipelines for products</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Toulon -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Apr 2024 - Jun 2025</span>
-                        <h3 class="timeline-title">Simulation Engineer</h3>
-                        <span class="timeline-company">Toulon Var Technologies</span>
-                        <ul>
-                            <li>Developed simulation system modeling combat behavior between warships and drones</li>
-                            <li>Deployed in Swarmz4 - SWARMz Cup Challenge 4 competition</li>
-                        </ul>
-                    </div>
-                </div>
-                
                 <!-- DigiFact -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">Oct 2024 - Present</span>
-                        <h3 class="timeline-title">Technology Integration Specialist</h3>
-                        <span class="timeline-company">DigiFact Solution</span>
-                        <ul>
-                            <li>Co-Founder of DigiFact</li>
-                            <li>Research and develop digital transformation solutions for businesses</li>
-                            <li>Built MES, ERP, CRM applications with focus on user experience</li>
-                            <li>Implemented AI technologies (LLMs, facial recognition, NLP)</li>
-                            <li>Established DevOps, Agile, and Scrum cultures tailored to organization's workflow</li>
-                        </ul>
+                        <div class="timeline-image">
+                            <img src="https://www.digifact.vn/Resources/DigiFact_Logo_Noname_Type1.png" alt="DigiFact Logo">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date" data-key="digifactDate">May 2025 – Present</span>
+                            <h3 class="timeline-title" data-key="digifactCEO">Co-founder & Chief Executive Officer (CEO)</h3>
+                            <span class="timeline-company">DIGIFACT SOLUTION</span>
+                            <ul>
+                                <li data-key="digifact1">Co-founded DigiFact - leading digital transformation solutions provider for lean enterprises and smart factories in Vietnam</li>
+                                <li data-key="digifact2">Lead strategic vision and business development for comprehensive ERP, MES, CRM solutions</li>
+                                <li data-key="digifact3">Drive R&D initiatives in end-to-end digital transformation technologies</li>
+                                <li data-key="digifact4">Architect modular, independent solutions helping industrial zones become lean, flexible, transparent and efficient</li>
+                                <li data-key="digifact5">Manage cross-functional teams including manufacturing experts, experienced software engineers, digital transformation specialists, and academic researchers</li>
+                                <li data-key="digifact6">Implement AI technologies (LLM, NLP, Computer Vision) for smart manufacturing solutions</li>
+                                <li data-key="digifact7">Establish Agile and Scrum development cultures tailored to client workflows</li>
+                                <li data-key="digifact8">Provide comprehensive consulting on business strategy, process analysis, and automation solution design</li>
+                                <li data-key="digifact9">Deliver 24/7 technical support ensuring stable system operations and seamless integration</li>
+                                <li data-key="digifact10">Lead data migration, system integration, and comprehensive user training programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Viettel Aerospace -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="ViettelAerospaceLogo.png" alt="Viettel Aerospace Logo">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date" data-key="viettelDate">December 2020 – May 2025</span>
+                            <h3 class="timeline-title" data-key="viettelLeadEngineer">Digital Transformation - Lead Engineer</h3>
+                            <span class="timeline-company">VIETTEL AEROSPACE</span>
+                            <ul>
+                                <li data-key="viettel1">Collect user needs, workflow, consult technical solutions and documentation</li>
+                                <li data-key="viettel2">Architect the unified solution, based on ISA-95 structure, for the whole system including hardware, software, integration, implementation plan, effective measuring methods, data analysis</li>
+                                <li data-key="viettel3">Develop MES software with great UX, covering exceptional cases</li>
+                                <li data-key="viettel4">Deploy user test and trial operation on separated/collaborated departments across the factory</li>
+                                <li data-key="viettel5">Purchase devices and consumable goods, supported for MES user experiences</li>
+                                <li data-key="viettel6">Coordinate an internal Digital Transformation (DX) team to implement MES solutions effectively</li>
+                                <li data-key="viettel7">Establish the first edition of Standard Operating Procedure (SOP) with collaborative effort</li>
+                                <li data-key="viettel8">Integrate tightening tools, measurement instruments and other systems to MES local unified solution</li>
+                                <li data-key="viettel9">Deliver interactive realtime dashboards of OEE, SQCD, KPIs in ISO 22400 and AS9100</li>
+                                <li data-key="viettel10">Working with AMR vendors, clarify requirements, simulate working principles, supervise AMR implementation and integration to MES</li>
+                                <li data-key="viettel11">Coordinate vendors in deploying new production factory</li>
+                                <li data-key="viettel12">Purchase, supervise installation and configuration of all local IT infrastructures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- B. Braun Vietnam -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="BbraunLogo.png" alt="B. Braun Vietnam Logo">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date" data-key="braunDate">March 2020 – December 2020</span>
+                            <h3 class="timeline-title" data-key="braunEngineer">Operational Excellence Engineer</h3>
+                            <span class="timeline-company">B. BRAUN VIETNAM</span>
+                            <ul>
+                                <li data-key="braun1">Lead engineer in the project of PC control system for material supply management</li>
+                                <li data-key="braun2">Simulate 3D production process with statistical analysis</li>
+                                <li data-key="braun3">Facial recognition app for canteen daily attendant control</li>
+                                <li data-key="braun4">Pre-requisition for AGV and automatic storage</li>
+                                <li data-key="braun5">Secretary for Digital transformation B. Braun Global manager</li>
+                                <li data-key="braun6">Learn data visualization, computer vision, ISA-95, Lean manufacturing</li>
+                                <li data-key="braun7">CAPA project implementation with 150K$ cost saving</li>
+                                <li data-key="braun8">Design electrical & PLC control cabinet</li>
+                                <li data-key="braun9">Develop and testing PC WPF-based app</li>
+                                <li data-key="braun10">Deploy to factory with local database</li>
+                                <li data-key="braun11">Training users and supervisors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Samsung Display Vietnam -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="SamsungSdvLogo.jpg" alt="Samsung Display Vietnam Logo">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date" data-key="samsungDate">June 2019 – September 2019</span>
+                            <h3 class="timeline-title" data-key="samsungIntern">Residential Technical Internship</h3>
+                            <span class="timeline-company">SAMSUNG DISPLAY VIETNAM</span>
+                            <ul>
+                                <li data-key="samsung1">Orientation training and machinery fundamentals</li>
+                                <li data-key="samsung2">Hands-on experience: wiring control cabinet (electrical and pneumatical devices)</li>
+                                <li data-key="samsung3">Program PLC, design HMI and PC control for industrial applications</li>
+                                <li data-key="samsung4">Operate (Nachi, ABB) robotic arm with tech pendant</li>
+                                <li data-key="samsung5">Practical experience with (Cognex, Keyence) camera vision</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1321,7 +1572,7 @@
     <section id="skills">
         <div class="container">
             <div class="section-title">
-                <h2>Technical & Professional Skills</h2>
+                <h2>Skills & Expertise</h2>
             </div>
             <div class="skills-container">
                 <!-- Soft Skills -->
@@ -1330,315 +1581,236 @@
                         <div class="category-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h3 class="category-title">Soft Skills</h3>
+                        <h3 class="category-title" data-key="softSkills">Soft Skills</h3>
                     </div>
                     <ul class="skills-list">
                         <li class="skill-item">
-                            <div class="skill-details">Quick adaptation and continuous learning</div>
+                            <div class="skill-title" data-key="adaptationSkill">Personal Development</div>
+                            <div class="skill-details" data-key="adaptationDetail">Quick adaptation and continuous learning</div>
                         </li>
                         <li class="skill-item">
-                            <div class="skill-details">Internal and external collaboration</div>
+                            <div class="skill-title" data-key="teamworkSkill">Collaboration</div>
+                            <div class="skill-details" data-key="teamworkDetail">Team work and external collaboration</div>
                         </li>
                         <li class="skill-item">
-                            <div class="skill-details">Knowledge documentation</div>
+                            <div class="skill-title" data-key="documentationSkill">Documentation</div>
+                            <div class="skill-details" data-key="documentationDetail">Knowledge documentation</div>
                         </li>
                         <li class="skill-item">
-                            <div class="skill-details">Build up team spirit</div>
+                            <div class="skill-title" data-key="procurementSkill">Administration</div>
+                            <div class="skill-details" data-key="procurementDetail">Paperwork of purchasing</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="leadershipSkill">Leadership</div>
+                            <div class="skill-details" data-key="leadershipDetail">Build up team spirit</div>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Project Management -->
+                <!-- Programming & Data tools -->
                 <div class="skills-category">
                     <div class="category-header">
                         <div class="category-icon">
-                            <i class="fas fa-tasks"></i>
+                            <i class="fas fa-code"></i>
                         </div>
-                        <h3 class="category-title">Project Management</h3>
+                        <h3 class="category-title" data-key="programmingDataTools">Programming & Data Tools</h3>
                     </div>
                     <ul class="skills-list">
                         <li class="skill-item">
-                            <div class="skill-details">User requirement-to-solution documentation</div>
+                            <div class="skill-title" data-key="programmingLangs">Programming Languages</div>
+                            <div class="skill-details" data-key="programmingLangsDetail">C/C# (WPF), Python</div>
                         </li>
                         <li class="skill-item">
-                            <div class="skill-details">Total solution implementation and integration</div>
+                            <div class="skill-title" data-key="plcHmi">PLC & HMI</div>
+                            <div class="skill-details" data-key="plcHmiDetail">TIA Portal (Siemens), GX/GT work (Mitsubishi)</div>
                         </li>
                         <li class="skill-item">
-                            <div class="skill-details">Balance IT workload and user expectation</div>
+                            <div class="skill-title" data-key="database">Database</div>
+                            <div class="skill-details" data-key="databaseDetail">MS SQL Server, PostgresDB, MariaDB</div>
                         </li>
                         <li class="skill-item">
-                            <div class="skill-details">Able to work under tight schedule and go on business trip</div>
+                            <div class="skill-title" data-key="dataAnalytics">Data Analytics</div>
+                            <div class="skill-details" data-key="dataAnalyticsDetail">PowerBI, Tableau, Minitab</div>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Technical Skills -->
-                <div class="skills-category" style="grid-column: span 2;">
+                <!-- MES & Manufacturing -->
+                <div class="skills-category">
                     <div class="category-header">
                         <div class="category-icon">
-                            <i class="fas fa-laptop-code"></i>
+                            <i class="fas fa-industry"></i>
                         </div>
-                        <h3 class="category-title">Technical Skills</h3>
+                        <h3 class="category-title" data-key="mesManufacturing">MES & Manufacturing</h3>
                     </div>
-                    <div class="tech-grid">
-                        <div class="tech-category">
-                            <div class="tech-title">Programming Languages</div>
-                            <div class="skill-details">C/C++ and C# (ROS; WPF, MAUI, WinUI)</div>
-                            <div class="skill-details">Python (ROS, Machine Learning, DeepLearning, Computer Vision), JavaScript (Web), Java (Android)</div>
-                        </div>
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">System Management</div>
-                            <div class="skill-details">VM-Ware Esxi, OpenStack</div>
-                            <div class="skill-details">Kubernetes (K8s, K3s)</div>
-                            <div class="skill-details">Google Cloud, Hadoop</div>
-                        </div>
-
-                        <div class="tech-category">
-                            <div class="tech-title">Database</div>
-                            <div class="skill-details">MS SQL Server, PostgresDB</div>
-                        </div>
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">Backup & Restore</div>
-                            <div class="skill-details">rclone, Dbeaver</div>
-                        </div>
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">DevOps Tools</div>
-                            <div class="skill-details">Circle CI, ArgoCD, Jenkin, Gitlab</div>
-                        </div>                        
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">Operating Systems</div>
-                            <div class="skill-details">Ubuntu, Kali Linux, Parrot, Windows</div>
-                        </div>
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">Network Management</div>
-                            <div class="skill-details">Winbox, RouterOS, pfSense</div>
-                            <div class="skill-details">haproxy (pfSense, Ubuntu)</div>
-                            <div class="skill-details">Tailscale, nginx, ngrok, apache, nmap</div>
-                        </div>
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">Notification Systems</div>
-                            <div class="skill-details">SMTP server (automatic email)</div>
-                            <div class="skill-details">FCM (push notifications)</div>
-                            <div class="skill-details">Telegram chatbot</div>
-                        </div>
-                        
-                        <div class="tech-category">
-                            <div class="tech-title">Resource Storage</div>
-                            <div class="skill-details">Github, Gitlab, DockerHub</div>
-                            <div class="skill-details">Harbor (On-premises and cloud)</div>
-                        </div>
-                    </div>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="requirementAnalysis">Requirements Analysis</div>
+                            <div class="skill-details" data-key="mesSkill1">User requirement-to-solution documentation</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="solutionImplementation">Solution Implementation</div>
+                            <div class="skill-details" data-key="mesSkill2">Total solution implementation and integration</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="problemSolving">Problem Solving</div>
+                            <div class="skill-details" data-key="mesSkill3">Problem solving and balance workload and expectation across departments</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="flexibleWorking">Flexible Working</div>
+                            <div class="skill-details" data-key="mesSkill4">Able to work under tight schedule and go on business trip</div>
+                        </li>
+                    </ul>
                 </div>
                 
-                <!-- Other Skills -->
-                <div class="skills-category" style="grid-column: span 2;">
+                <!-- Other Technical Skills -->
+                <div class="skills-category">
                     <div class="category-header">
                         <div class="category-icon">
                             <i class="fas fa-tools"></i>
                         </div>
-                        <h3 class="category-title">Other Skills & Tools</h3>
+                        <h3 class="category-title" data-key="otherSkills">Other Skills</h3>
                     </div>
-                    <div class="tech-grid">
-                        <div class="tech-category">
-                            <div class="tech-title">AI Tools</div>
-                            <div class="skill-details">ChatGPT, GitHub Copilot</div>
-                            <div class="skill-details">DeepSeek, Grok</div>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="productionSim">Production Simulation</div>
+                            <div class="skill-details" data-key="productionSimDetail">Factory IO, Visual components, Witness</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="computerVision">Computer Vision</div>
+                            <div class="skill-details" data-key="computerVisionDetail">Facial recognition, Object detect and classification (OpenCV, Google Collab)</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="aiTools">AI Tools</div>
+                            <div class="skill-details" data-key="aiToolsDetail">ChatGPT, GitHub Copilot</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-title" data-key="projectMgmt">Project Management</div>
+                            <div class="skill-details" data-key="projectMgmtDetail">Trello, Goodday.work</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background: rgba(10, 10, 26, 0.7);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Certifications</h2>
+            </div>
+            <div class="education-container">
+                <!-- Main Education -->
+                <div class="education-main">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-title-section">
+                            <h3 data-key="educationTitle">AP Class in Automation Control</h3>
+                            <div class="university" data-key="universityName">HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY</div>
+                            <div class="duration">2015 - 2020</div>
+                        </div>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h4 data-key="researchProjects">Research Projects – Automation Control Lab</h4>
+                            <ul>
+                                <li data-key="research1">Hierarchical sliding mode control theories and MATLAB simulations</li>
+                                <li data-key="research2">Embedded/Power electronic circuit design, fabrication and programming with micro-controller AVR/PIC/STM/Raspberry Pi</li>
+                                <li data-key="research3">Omni-wheel Automated Guided Vehicle (AGV) assembly, control and live monitoring</li>
+                                <li data-key="research4">First-stage prototype of magnetic levitation and abnormalities detection in industrial machinery</li>
+                            </ul>
                         </div>
                         
-                        <div class="tech-category">
-                            <div class="tech-title">Task Tracking</div>
-                            <div class="skill-details">Trello, Goodday.work</div>
-                            <div class="skill-details">OpenProject, Github project</div>
+                        <div class="project-card">
+                            <h4 data-key="practicalProjects">Practical Projects – Team Leader of PLC and Industrial Applications</h4>
+                            <ul>
+                                <li data-key="practical1">Surface acoustic wave (SAW) sensor for transformer busbar heat measurement for EVN</li>
+                                <li data-key="practical2">PLC-inspired circuits communicating with field devices using MODBUS/Profibus</li>
+                                <li data-key="practical3">Teaching assistance in PLC programming and Industrial communication courses</li>
+                            </ul>
                         </div>
-                                               
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research" style="background: rgba(10, 10, 26, 0.7);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Research Experience</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="category-title">AI Research</h3>
-                    </div>
-                    <ul class="skills-list">
-                        <li class="skill-item">
-                            <div class="skill-details">Enhanced image quality for obstacle avoidance</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Improved drone obstacle avoidance models</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Data enrichment for AI training</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Small object detection on edge devices</div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3 class="category-title">Robotics</h3>
-                    </div>
-                    <ul class="skills-list">
-                        <li class="skill-item">
-                            <div class="skill-details">Drone hardware systems development</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Minimal hardware for tiny drones</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Drone communication systems</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Multi-drone control with Kubernetes</div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
-                        <h3 class="category-title">Communication</h3>
-                    </div>
-                    <ul class="skills-list">
-                        <li class="skill-item">
-                            <div class="skill-details">Real-time multimedia systems</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Network modeling with NS3</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">AI-powered disaster response systems</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Communication infrastructure simulation</div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="category-title">Leadership</h3>
-                    </div>
-                    <ul class="skills-list">
-                        <li class="skill-item">
-                            <div class="skill-details">Team leader for AI, Robotics & IoT</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Led railway monitoring system project</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Real-world project deployment</div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-details">Security threat mitigation</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications -->
-    <section id="publications">
-        <div class="container">
-            <div class="section-title">
-                <h2>Publications</h2>
-            </div>
-            <div class="publication-list">
-                <div class="publication-item">
-                    <h3 class="publication-title">Leveraging Deep Learning Technique with Meta-Data-Featured Images Captured by Drone for Real-Time Victim Positioning in Flood-Affected Areas</h3>
-                    <div class="publication-conference">2025 19th International Conference on Ubiquitous Information Management and Communication (IMCOM)</div>
-                    <div class="publication-doi">DOI: <a href="https://doi.org/10.1109/IMCOM64595.2025.10857535">10.1109/IMCOM64595.2025.10857535</a></div>
-                </div>
-                
-                <div class="publication-item">
-                    <h3 class="publication-title">A Novel Simulation-Driven Data Enrichment Approach to Improve Machine Learning Algorithm Performance</h3>
-                    <div class="publication-conference">Book: Information and Communication Technology</div>
-                    <div class="publication-doi">DOI: <a href="https://doi.org/10.1007/978-981-96-4288-5_30">10.1007/978-981-96-4288-5_30</a></div>
-                </div>
-                
-                <div class="publication-item">
-                    <h3 class="publication-title"><span class="in-process-badge">In-Process</span>Drone-based Autonomous Navigation and Victim Detection Using Deep Learning Technique for Non-GPS In-Building Environments</h3>
-                    <div class="publication-conference">17th International Conference on Computational Collective Intelligence ICCCI 2025</div>
-                </div>
-                
-                <div class="publication-item">
-                    <h3 class="publication-title"><span class="in-process-badge">In-Process</span>Machine Learning-Based Formation Control for Underactuated Multi-AUV Systems in Dynamic Underwater Environments</h3>
-                    <div class="publication-conference">The 18th Asian International Conference on Fluid Machinery AICFM 2025 </div>
                 </div>
 
-                <div class="publication-item">
-                    <h3 class="publication-title">A model of applying UAV technology and artificial intelligence to serve the command and support at the scene</h3>
-                    <div class="publication-doi"> <a href="https://dientuungdung.vn/mot-mo-hinh-ung-dung-cong-nghe-uav-va-tri-tue-nhan-tao-phuc-vu-chi-huy-va-ho-tro-ung-cuu-tai-hien-truong-8271.html">REV-ECIT 2024</a></div>
+                <!-- Certifications Section -->
+                <div class="certifications-section">
+                    <div class="cert-categories">
+                        <div class="cert-category">
+                            <div class="cert-header">
+                                <div class="cert-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h4 data-key="vtxCourses">VTX Courses</h4>
+                            </div>
+                            <ul class="cert-list">
+                                <li class="cert-item" data-key="vtx1">Completion certificate of Professional production supervisor</li>
+                                <li class="cert-item" data-key="vtx2">Completion certificate of BSI Lean six sigma Green Belt</li>
+                            </ul>
+                        </div>
+
+                        <div class="cert-category">
+                            <div class="cert-header">
+                                <div class="cert-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h4 data-key="language">Language Skills</h4>
+                            </div>
+                            <ul class="cert-list">
+                                <li class="cert-item" data-key="lang1">Score of 945 TOEIC IIG</li>
+                                <li class="cert-item" data-key="lang2">Advanced level in English communication and technical contemporary topic reading</li>
+                                <li class="cert-item" data-key="lang3">Elementary level in Japanese and Korean</li>
+                            </ul>
+                        </div>
+
+                        <div class="cert-category">
+                            <div class="cert-header">
+                                <div class="cert-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h4 data-key="otherAchievements">Other Achievements</h4>
+                            </div>
+                            <ul class="cert-list">
+                                <li class="cert-item" data-key="achieve1">Promising award - FPT Denso Factory Hacks 2023</li>
+                                <li class="cert-item" data-key="achieve2">Certificate of Participation – HUST iBuddy 1st Gen Leader</li>
+                                <li class="cert-item" data-key="achieve3">Google data analytics & Google business intelligence (Coursera)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" style="background: rgba(10, 10, 26, 0.7);">
+    <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Me</h2>
+                <h2 data-key="contactInfo">Contact Information</h2>
             </div>
             <div class="contact-grid">
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <h3 class="contact-title">Personal Email</h3>
-                    <div class="contact-info">udy.duy@gmail.com</div>
-                    <a href="mailto:udy.duy@gmail.com" class="btn btn-primary">Send Message</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <h3 class="contact-title">Email for Work</h3>
-                    <div class="contact-info">duynd@digifact.vn</div>
-                    <a href="mailto:duynd@digifact.vn" class="btn btn-primary">Send Message</a>
+                    <h3 class="contact-title" data-key="emailTitle">Email</h3>
+                    <div class="contact-info">dangdg@digifact.vn</div>
+                    <a href="mailto:dangdg@digifact.vn" class="btn btn-primary" data-key="sendMessage">Send Message</a>
                 </div>
                 
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                    <h3 class="contact-title">Phone (Vietnam)</h3>
-                    <div class="contact-info">+84.393.741.928</div>
-                    <a href="tel:+84393741928" class="btn btn-primary">Call Now</a>
+                    <h3 class="contact-title" data-key="phoneTitle">Phone</h3>
+                    <div class="contact-info">(+84) 33 884 5579</div>
+                    <a href="tel:+84338845579" class="btn btn-primary" data-key="callNow">Call Now</a>
                 </div>
                 
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <h3 class="contact-title">Location</h3>
-                    <div class="contact-info">Hanoi, Vietnam</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/udy12i1i7/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/duy12i1i7"><i class="fab fa-github"></i></a>
-                        <a href="https://www.facebook.com/nguyen.dinh.duy.0512/"><i class="fab fa-facebook"></i></a>
-                    </div>
+                    <h3 class="contact-title" data-key="locationTitle">Location</h3>
+                    <div class="contact-info" data-key="locationInfo">Hanoi - Vietnam</div>
+                    <div class="contact-info" style="font-size: 0.9rem; margin-top: 10px;" data-key="birthInfo">Born: 05/11/1997</div>
                 </div>
             </div>
         </div>
@@ -1709,11 +1881,6 @@
         // Observe skills categories
         document.querySelectorAll('.skills-category').forEach(skill => {
             observer.observe(skill);
-        });
-
-        // Observe publication items
-        document.querySelectorAll('.publication-item').forEach(pub => {
-            observer.observe(pub);
         });
 
         // Observe contact cards
@@ -1792,6 +1959,631 @@
                 }, 300 + (index * 200));
             });
         }, 500);
+
+        // Language functionality
+        const translations = {
+            en: {
+                // Navigation
+                about: "About",
+                experience: "Experience", 
+                skills: "Skills",
+                education: "Education",
+                contact: "Contact",
+                // Hero section
+                heroWord1: "Digital",
+                heroWord2: "Transformation", 
+                heroWord3: "Expert",
+                heroSubtitle: "MES Solutions Specialist | Manufacturing Innovation Leader | ISA-95 Architect with a passion for transforming manufacturing processes from zero to hero through cutting-edge digital technologies.",
+                getInTouch: "Get In Touch",
+                viewExperience: "View Experience",
+                // Section titles
+                aboutMe: "About Me",
+                professionalExperience: "Professional Experience",
+                skillsExpertise: "Skills & Expertise",
+                educationCertifications: "Education & Certifications",
+                contactInformation: "Contact Information",
+                // About section
+                aboutText1: "I am a Digital Transformation Expert with a strong passion for digital transformation journey and extensive experience in implementing MES and related solutions in manufacturing facilities, from zero to hero. I am confident in my ability to collaborate with colleagues from many different departments within the organization or partnership vendors, to help factory procedures be actually transformed in positive directions.",
+                aboutText2: "My expertise spans across the entire digital transformation ecosystem, from collecting user needs and workflow analysis to architecting unified solutions based on ISA-95 structure. I specialize in developing MES software with exceptional user experience, covering exceptional cases, and integrating various manufacturing systems for optimal performance.",
+                // About highlights
+                digitalTransformation: "Digital Transformation",
+                mesDevelopment: "MES Development",
+                isa95Architecture: "ISA-95 Architecture",
+                manufacturingInnovation: "Manufacturing Innovation",
+                systemIntegration: "System Integration",
+                // Skills categories
+                softSkills: "Soft Skills",
+                programmingDataTools: "Programming & Data Tools",
+                mesManufacturing: "MES & Manufacturing",
+                otherSkills: "Other Skills",
+                // Contact
+                email: "Email",
+                phone: "Phone",
+                location: "Location",
+                sendMessage: "Send Message",
+                callNow: "Call Now",
+                born: "Born: 05/11/1997",
+                // Experience positions
+                digifactCEO: "Co-founder & Chief Executive Officer (CEO)",
+                viettelLeadEngineer: "Digital Transformation - Lead Engineer",
+                braunEngineer: "Operational Excellence Engineer",
+                samsungIntern: "Residential Technical Internship",
+                // Experience details - DigiFact
+                digifact1: "Co-founded DigiFact - leading digital transformation solutions provider for lean enterprises and smart factories in Vietnam",
+                digifact2: "Lead strategic vision and business development for comprehensive ERP, MES, CRM solutions",
+                digifact3: "Drive R&D initiatives in end-to-end digital transformation technologies",
+                digifact4: "Architect modular, independent solutions helping industrial zones become lean, flexible, transparent and efficient",
+                digifact5: "Manage cross-functional teams including manufacturing experts, experienced software engineers, digital transformation specialists, and academic researchers",
+                digifact6: "Implement AI technologies (LLM, NLP, Computer Vision) for smart manufacturing solutions",
+                digifact7: "Establish Agile and Scrum development cultures tailored to client workflows",
+                digifact8: "Provide comprehensive consulting on business strategy, process analysis, and automation solution design",
+                digifact9: "Deliver 24/7 technical support ensuring stable system operations and seamless integration",
+                digifact10: "Lead data migration, system integration, and comprehensive user training programs",
+                // Experience details - Viettel
+                viettel1: "Collect user needs, workflow, consult technical solutions and documentation",
+                viettel2: "Architect the unified solution, based on ISA-95 structure, for the whole system including hardware, software, integration, implementation plan, effective measuring methods, data analysis",
+                viettel3: "Develop MES software with great UX, covering exceptional cases",
+                viettel4: "Deploy user test and trial operation on separated/collaborated departments across the factory",
+                viettel5: "Purchase devices and consumable goods, supported for MES user experiences",
+                viettel6: "Coordinate an internal Digital Transformation (DX) team to implement MES solutions effectively",
+                viettel7: "Establish the first edition of Standard Operating Procedure (SOP) with collaborative effort",
+                viettel8: "Integrate tightening tools, measurement instruments and other systems to MES local unified solution",
+                viettel9: "Deliver interactive realtime dashboards of OEE, SQCD, KPIs in ISO 22400 and AS9100",
+                viettel10: "Working with AMR vendors, clarify requirements, simulate working principles, supervise AMR implementation and integration to MES",
+                viettel11: "Coordinate vendors in deploying new production factory",
+                viettel12: "Purchase, supervise installation and configuration of all local IT infrastructures",
+                // Experience details - B.Braun
+                braun1: "Lead engineer in the project of PC control system for material supply management",
+                braun2: "Simulate 3D production process with statistical analysis",
+                braun3: "Facial recognition app for canteen daily attendant control",
+                braun4: "Pre-requisition for AGV and automatic storage",
+                braun5: "Secretary for Digital transformation B. Braun Global manager",
+                braun6: "Learn data visualization, computer vision, ISA-95, Lean manufacturing",
+                braun7: "CAPA project implementation with 150K$ cost saving",
+                braun8: "Design electrical & PLC control cabinet",
+                braun9: "Develop and testing PC WPF-based app",
+                braun10: "Deploy to factory with local database",
+                braun11: "Training users and supervisors",
+                // Experience details - Samsung
+                samsung1: "Orientation training and machinery fundamentals",
+                samsung2: "Hands-on experience: wiring control cabinet (electrical and pneumatical devices)",
+                samsung3: "Program PLC, design HMI and PC control for industrial applications",
+                samsung4: "Operate (Nachi, ABB) robotic arm with tech pendant",
+                samsung5: "Practical experience with (Cognex, Keyence) camera vision",
+                // Education
+                educationTitle: "AP Class in Automation Control",
+                universityName: "HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+                cpa: "CPA: 3.09/4.0",
+                researchProjects: "Research Projects – Automation Control Lab",
+                practicalProjects: "Practical Projects – Team Leader of PLC and Industrial Applications",
+                professionalCertifications: "Professional Certifications",
+                vtxCourses: "VTX Courses",
+                language: "Language Skills",
+                otherAchievements: "Other Achievements",
+                // Research projects
+                research1: "Hierarchical sliding mode control theories and MATLAB simulations",
+                research2: "Embedded/Power electronic circuit design, fabrication and programming with micro-controller AVR/PIC/STM/Raspberry Pi",
+                research3: "Omni-wheel Automated Guided Vehicle (AGV) assembly, control and live monitoring",
+                research4: "First-stage prototype of magnetic levitation and abnormalities detection in industrial machinery",
+                // Practical projects
+                practical1: "Surface acoustic wave (SAW) sensor for transformer busbar heat measurement for EVN",
+                practical2: "PLC-inspired circuits communicating with field devices using MODBUS/Profibus",
+                practical3: "Teaching assistance in PLC programming and Industrial communication courses",
+                // VTX Courses
+                vtx1: "Completion certificate of Professional production supervisor",
+                vtx2: "Completion certificate of BSI Lean six sigma Green Belt",
+                // Language skills
+                lang1: "Score of 945 TOEIC IIG",
+                lang2: "Advanced level in English communication and technical contemporary topic reading",
+                lang3: "Elementary level in Japanese and Korean",
+                // Achievements
+                achieve1: "Promising award - FPT Denso Factory Hacks 2023",
+                achieve2: "Certificate of Participation – HUST iBuddy 1st Gen Leader",
+                achieve3: "Google data analytics & Google business intelligence (Coursera)",
+                // Contact section
+                contactInfo: "Contact Information",
+                emailTitle: "Email",
+                phoneTitle: "Phone", 
+                locationTitle: "Location",
+                locationInfo: "Hanoi - Vietnam",
+                birthInfo: "Born: 05/11/1997",
+                sendMessage: "Send Message",
+                callNow: "Call Now",
+                getInTouch: "Get In Touch",
+                // Date ranges
+                digifactDate: "May 2025 – Present",
+                viettelDate: "December 2020 – May 2025", 
+                braunDate: "March 2020 – December 2020",
+                samsungDate: "June 2019 – September 2019",
+                // Skills section
+                programmingLangs: "Programming Languages",
+                programmingLangsDetail: "C/C# (WPF), Python",
+                plcHmi: "PLC & HMI",
+                plcHmiDetail: "TIA Portal (Siemens), GX/GT work (Mitsubishi)",
+                database: "Database",
+                databaseDetail: "MS SQL Server, PostgresDB, MariaDB",
+                dataAnalytics: "Data Analytics", 
+                dataAnalyticsDetail: "PowerBI, Tableau, Minitab",
+                mesSkill1: "User requirement-to-solution documentation",
+                mesSkill2: "Total solution implementation and integration",
+                mesSkill3: "Problem solving and balance workload and expectation across departments",
+                mesSkill4: "Able to work under tight schedule and go on business trip",
+                requirementAnalysis: "Requirements Analysis",
+                solutionImplementation: "Solution Implementation", 
+                problemSolving: "Problem Solving",
+                flexibleWorking: "Flexible Working",
+                productionSim: "Production Simulation",
+                productionSimDetail: "Factory IO, Visual components, Witness",
+                computerVision: "Computer Vision",
+                computerVisionDetail: "Facial recognition, Object detect and classification (OpenCV, Google Collab)",
+                aiTools: "AI Tools",
+                aiToolsDetail: "ChatGPT, GitHub Copilot",
+                projectMgmt: "Project Management",
+                projectMgmtDetail: "Trello, Goodday.work",
+                // Soft Skills
+                adaptationSkill: "Personal Development",
+                adaptationDetail: "Quick adaptation and continuous learning",
+                teamworkSkill: "Collaboration", 
+                teamworkDetail: "Team work and external collaboration",
+                documentationSkill: "Documentation",
+                documentationDetail: "Knowledge documentation",
+                procurementSkill: "Administration",
+                procurementDetail: "Paperwork of purchasing",
+                leadershipSkill: "Leadership",
+                leadershipDetail: "Build up team spirit",
+                // Personal info
+                fullName: "Đỗ Gia Đăng"
+            },
+            zh: {
+                // Navigation
+                about: "关于",
+                experience: "经验",
+                skills: "技能", 
+                education: "教育",
+                contact: "联系",
+                // Hero section
+                heroWord1: "数字化",
+                heroWord2: "转型",
+                heroWord3: "专家",
+                heroSubtitle: "MES解决方案专家 | 制造业创新领导者 | ISA-95架构师，热衷于通过尖端数字技术将制造流程从零到英雄的转型。",
+                getInTouch: "联系我",
+                viewExperience: "查看经验",
+                // Section titles
+                aboutMe: "关于我",
+                professionalExperience: "专业经验",
+                skillsExpertise: "技能和专长",
+                educationCertifications: "教育和认证",
+                contactInformation: "联系信息",
+                // About section
+                aboutText1: "我是一名数字化转型专家，对数字化转型旅程充满热情，在制造工厂实施MES及相关解决方案方面拥有丰富经验，从零开始到成功。我相信自己有能力与组织内不同部门的同事或合作伙伴供应商协作，帮助工厂流程真正朝着积极的方向转型。",
+                aboutText2: "我的专业知识涵盖整个数字化转型生态系统，从收集用户需求和工作流程分析到基于ISA-95结构架构统一解决方案。我专门开发具有卓越用户体验的MES软件，覆盖异常情况，并集成各种制造系统以实现最佳性能。",
+                // About highlights
+                digitalTransformation: "数字化转型",
+                mesDevelopment: "MES开发",
+                isa95Architecture: "ISA-95架构",
+                manufacturingInnovation: "制造业创新",
+                systemIntegration: "系统集成",
+                // Skills categories
+                softSkills: "软技能",
+                programmingDataTools: "编程和数据工具",
+                mesManufacturing: "MES与制造业",
+                otherSkills: "其他技能",
+                // Contact
+                email: "邮箱",
+                phone: "电话",
+                location: "位置",
+                sendMessage: "发送消息",
+                callNow: "立即致电",
+                born: "出生: 05/11/1997",
+                // Experience positions
+                digifactCEO: "联合创始人兼首席执行官（CEO）",
+                viettelLeadEngineer: "数字化转型 - 首席工程师",
+                braunEngineer: "卓越运营工程师",
+                samsungIntern: "住宿技术实习",
+                // Experience details - DigiFact
+                digifact1: "联合创立DigiFact - 越南精益企业和智能工厂的领先数字化转型解决方案提供商",
+                digifact2: "领导ERP、MES、CRM综合解决方案的战略愿景和业务发展",
+                digifact3: "推动端到端数字化转型技术的研发计划",
+                digifact4: "设计模块化、独立的解决方案，帮助工业区变得精益、灵活、透明和高效",
+                digifact5: "管理跨职能团队，包括制造专家、经验丰富的软件工程师、数字化转型专家和学术研究人员",
+                digifact6: "为智能制造解决方案实施AI技术（LLM、NLP、计算机视觉）",
+                digifact7: "建立适合客户工作流程的敏捷和Scrum开发文化",
+                digifact8: "提供业务战略、流程分析和自动化解决方案设计的全面咨询",
+                digifact9: "提供24/7技术支持，确保系统稳定运行和无缝集成",
+                digifact10: "领导数据迁移、系统集成和全面的用户培训项目",
+                // Experience details - Viettel
+                viettel1: "收集用户需求、工作流程，咨询技术解决方案和文档",
+                viettel2: "基于ISA-95结构，为整个系统架构统一解决方案，包括硬件、软件、集成、实施计划、有效测量方法、数据分析",
+                viettel3: "开发具有出色用户体验的MES软件，覆盖异常情况",
+                viettel4: "在工厂各个分离/协作部门部署用户测试和试运行",
+                viettel5: "采购设备和消耗品，支持MES用户体验",
+                viettel6: "协调内部数字化转型(DX)团队有效实施MES解决方案",
+                viettel7: "通过协作努力建立标准操作程序(SOP)的第一版",
+                viettel8: "将紧固工具、测量仪器和其他系统集成到MES本地统一解决方案中",
+                viettel9: "在ISO 22400和AS9100中提供OEE、SQCD、KPI的交互式实时仪表板",
+                viettel10: "与AMR供应商合作，明确需求，模拟工作原理，监督AMR实施和MES集成",
+                viettel11: "协调供应商部署新的生产工厂",
+                viettel12: "采购、监督安装和配置所有本地IT基础设施",
+                // Experience details - B.Braun
+                braun1: "物料供应管理PC控制系统项目的首席工程师",
+                braun2: "通过统计分析模拟3D生产过程",
+                braun3: "食堂日常考勤控制的人脸识别应用",
+                braun4: "AGV和自动存储的预申请",
+                braun5: "担任B. Braun全球数字化转型经理的秘书",
+                braun6: "学习数据可视化、计算机视觉、ISA-95、精益制造",
+                braun7: "CAPA项目实施，节省成本15万美元",
+                braun8: "设计电气和PLC控制柜",
+                braun9: "开发和测试基于PC WPF的应用程序",
+                braun10: "使用本地数据库部署到工厂",
+                braun11: "培训用户和主管",
+                // Experience details - Samsung
+                samsung1: "定向培训和机械基础知识",
+                samsung2: "实践经验：控制柜布线（电气和气动设备）",
+                samsung3: "为工业应用编程PLC、设计HMI和PC控制",
+                samsung4: "使用技术吊坠操作（Nachi、ABB）机械臂",
+                samsung5: "使用（Cognex、Keyence）摄像视觉的实践经验",
+                // Education
+                educationTitle: "自动化控制高级班",
+                universityName: "河内科技大学",
+                cpa: "学分绩点: 3.09/4.0",
+                researchProjects: "研究项目 – 自动化控制实验室",
+                practicalProjects: "实践项目 – PLC和工业应用团队负责人",
+                professionalCertifications: "专业认证",
+                vtxCourses: "VTX课程",
+                language: "语言技能",
+                otherAchievements: "其他成就",
+                // Research projects
+                research1: "分层滑模控制理论和MATLAB仿真",
+                research2: "嵌入式/功率电子电路设计、制造和微控制器AVR/PIC/STM/树莓派编程",
+                research3: "全向轮自动导引车(AGV)组装、控制和实时监控",
+                research4: "磁悬浮和工业机械异常检测的初级原型",
+                // Practical projects
+                practical1: "为EVN开发的变压器母线热测量表面声波(SAW)传感器",
+                practical2: "使用MODBUS/Profibus与现场设备通信的PLC启发电路",
+                practical3: "PLC编程和工业通信课程的教学辅助",
+                // VTX Courses
+                vtx1: "专业生产主管完成证书",
+                vtx2: "BSI精益六西格玛绿带完成证书",
+                // Language skills
+                lang1: "TOEIC IIG成绩945分",
+                lang2: "英语交流和技术当代话题阅读高级水平",
+                lang3: "日语和韩语初级水平",
+                // Achievements
+                achieve1: "FPT Denso工厂黑客马拉松2023有前途奖",
+                achieve2: "参与证书 – HUST iBuddy第一代领导者",
+                achieve3: "谷歌数据分析和谷歌商业智能(Coursera)",
+                // Contact section
+                contactInfo: "联系信息",
+                emailTitle: "邮箱",
+                phoneTitle: "电话",
+                locationTitle: "位置",
+                locationInfo: "河内 - 越南",
+                birthInfo: "出生日期: 05/11/1997",
+                sendMessage: "发送消息",
+                callNow: "立即致电",
+                getInTouch: "联系我",
+                // Date ranges
+                digifactDate: "2025年5月 – 至今",
+                viettelDate: "2020年12月 – 2025年5月",
+                braunDate: "2020年3月 – 2020年12月", 
+                samsungDate: "2019年6月 – 2019年9月",
+                // Skills section
+                programmingLangs: "编程语言",
+                programmingLangsDetail: "C/C# (WPF), Python",
+                plcHmi: "PLC & HMI",
+                plcHmiDetail: "TIA Portal (西门子), GX/GT work (三菱)",
+                database: "数据库",
+                databaseDetail: "MS SQL Server, PostgresDB, MariaDB",
+                dataAnalytics: "数据分析",
+                dataAnalyticsDetail: "PowerBI, Tableau, Minitab",
+                mesSkill1: "用户需求到解决方案文档",
+                mesSkill2: "完整解决方案实施和集成",
+                mesSkill3: "解决问题并平衡各部门工作量和期望",
+                mesSkill4: "能够在紧张的时间表下工作并出差",
+                requirementAnalysis: "需求分析",
+                solutionImplementation: "解决方案实施",
+                problemSolving: "问题解决",
+                flexibleWorking: "灵活工作",
+                productionSim: "生产仿真",
+                productionSimDetail: "Factory IO, Visual components, Witness",
+                computerVision: "计算机视觉",
+                computerVisionDetail: "人脸识别，物体检测和分类 (OpenCV, Google Collab)",
+                aiTools: "AI工具",
+                aiToolsDetail: "ChatGPT, GitHub Copilot",
+                projectMgmt: "项目管理",
+                projectMgmtDetail: "Trello, Goodday.work",
+                // Soft Skills
+                adaptationSkill: "个人发展",
+                adaptationDetail: "快速适应和持续学习",
+                teamworkSkill: "协作能力",
+                teamworkDetail: "团队合作和外部协作",
+                documentationSkill: "文档管理",
+                documentationDetail: "知识文档化",
+                procurementSkill: "行政管理",
+                procurementDetail: "采购文书工作",
+                leadershipSkill: "领导力",
+                leadershipDetail: "建立团队精神",
+                // Personal info
+                fullName: "杜家登"
+            },
+            vi: {
+                // Navigation
+                about: "Giới thiệu",
+                experience: "Kinh nghiệm",
+                skills: "Kỹ năng",
+                education: "Học vấn", 
+                contact: "Liên hệ",
+                // Hero section
+                heroWord1: "Chuyên gia",
+                heroWord2: "Chuyển đổi số",
+                heroWord3: "Toàn diện",
+                heroSubtitle: "Chuyên gia Giải pháp MES | Nhà lãnh đạo Đổi mới Sản xuất | Kiến trúc sư ISA-95 với niềm đam mê chuyển đổi quy trình sản xuất từ con số không thành anh hùng thông qua các công nghệ số tiên tiến.",
+                getInTouch: "Liên hệ",
+                viewExperience: "Xem kinh nghiệm",
+                // Section titles
+                aboutMe: "Giới thiệu về tôi",
+                professionalExperience: "Kinh nghiệm nghề nghiệp",
+                skillsExpertise: "Kỹ năng & Chuyên môn",
+                educationCertifications: "Học vấn & Chứng chỉ",
+                contactInformation: "Thông tin liên hệ",
+                // About section
+                aboutText1: "Tôi là một Chuyên gia Chuyển đổi Số với niềm đam mê mạnh mẽ cho hành trình chuyển đổi số và kinh nghiệm phong phú trong việc triển khai MES và các giải pháp liên quan trong các cơ sở sản xuất, từ con số không đến thành công. Tôi tự tin vào khả năng hợp tác với các đồng nghiệp từ nhiều phòng ban khác nhau trong tổ chức hoặc các nhà cung cấp đối tác, để giúp các quy trình nhà máy thực sự được chuyển đổi theo hướng tích cực.",
+                aboutText2: "Chuyên môn của tôi bao trùm toàn bộ hệ sinh thái chuyển đổi số, từ thu thập nhu cầu người dùng và phân tích quy trình làm việc đến kiến trúc các giải pháp thống nhất dựa trên cấu trúc ISA-95. Tôi chuyên phát triển phần mềm MES với trải nghiệm người dùng xuất sắc, bao phủ các trường hợp ngoại lệ và tích hợp các hệ thống sản xuất khác nhau để đạt hiệu suất tối ưu.",
+                // About highlights
+                digitalTransformation: "Chuyển đổi Số",
+                mesDevelopment: "Phát triển MES",
+                isa95Architecture: "Kiến trúc ISA-95",
+                manufacturingInnovation: "Đổi mới Sản xuất",
+                systemIntegration: "Tích hợp Hệ thống",
+                // Skills categories
+                softSkills: "Kỹ năng mềm",
+                programmingDataTools: "Lập trình & Công cụ Dữ liệu",
+                mesManufacturing: "MES & Sản xuất",
+                otherSkills: "Kỹ năng khác",
+                // Contact
+                email: "Email",
+                phone: "Điện thoại",
+                location: "Vị trí",
+                sendMessage: "Gửi tin nhắn",
+                callNow: "Gọi ngay",
+                born: "Sinh: 05/11/1997",
+                // Experience positions
+                digifactCEO: "Đồng sáng lập & Giám đốc điều hành (CEO)",
+                viettelLeadEngineer: "Chuyển đổi Số - Kỹ sư Trưởng",
+                braunEngineer: "Kỹ sư Xuất sắc Vận hành",
+                samsungIntern: "Thực tập Kỹ thuật Nội trú",
+                // Experience details - DigiFact
+                digifact1: "Đồng sáng lập DigiFact - nhà cung cấp giải pháp chuyển đổi số hàng đầu cho các doanh nghiệp tinh gọn và nhà máy thông minh tại Việt Nam",
+                digifact2: "Dẫn dắt tầm nhìn chiến lược và phát triển kinh doanh cho các giải pháp ERP, MES, CRM toàn diện",
+                digifact3: "Thúc đẩy các sáng kiến R&D trong công nghệ chuyển đổi số từ đầu đến cuối",
+                digifact4: "Kiến trúc các giải pháp mô-đun, độc lập giúp các khu công nghiệp trở nên tinh gọn, linh hoạt, minh bạch và hiệu quả",
+                digifact5: "Quản lý các nhóm đa chức năng bao gồm chuyên gia sản xuất, kỹ sư phần mềm có kinh nghiệm, chuyên gia chuyển đổi số và các nhà nghiên cứu học thuật",
+                digifact6: "Triển khai các công nghệ AI (LLM, NLP, Computer Vision) cho các giải pháp sản xuất thông minh",
+                digifact7: "Thiết lập văn hóa phát triển Agile và Scrum phù hợp với quy trình làm việc của khách hàng",
+                digifact8: "Cung cấp tư vấn toàn diện về chiến lược kinh doanh, phân tích quy trình và thiết kế giải pháp tự động hóa",
+                digifact9: "Cung cấp hỗ trợ kỹ thuật 24/7 đảm bảo hoạt động hệ thống ổn định và tích hợp liền mạch",
+                digifact10: "Dẫn dắt việc di chuyển dữ liệu, tích hợp hệ thống và các chương trình đào tạo người dùng toàn diện",
+                // Experience details - Viettel
+                viettel1: "Thu thập nhu cầu người dùng, quy trình làm việc, tư vấn giải pháp kỹ thuật và tài liệu",
+                viettel2: "Kiến trúc giải pháp thống nhất, dựa trên cấu trúc ISA-95, cho toàn bộ hệ thống bao gồm phần cứng, phần mềm, tích hợp, kế hoạch triển khai, phương pháp đo lường hiệu quả, phân tích dữ liệu",
+                viettel3: "Phát triển phần mềm MES với UX tuyệt vời, bao phủ các trường hợp ngoại lệ",
+                viettel4: "Triển khai thử nghiệm người dùng và vận hành thử nghiệm trên các phòng ban riêng biệt/hợp tác trên toàn nhà máy",
+                viettel5: "Mua sắm thiết bị và hàng tiêu hao, hỗ trợ trải nghiệm người dùng MES",
+                viettel6: "Điều phối nhóm Chuyển đổi Số (DX) nội bộ để triển khai giải pháp MES hiệu quả",
+                viettel7: "Thiết lập phiên bản đầu tiên của Quy trình Vận hành Tiêu chuẩn (SOP) với nỗ lực hợp tác",
+                viettel8: "Tích hợp công cụ siết chặt, dụng cụ đo lường và các hệ thống khác vào giải pháp thống nhất MES địa phương",
+                viettel9: "Cung cấp bảng điều khiển thời gian thực tương tác của OEE, SQCD, KPI trong ISO 22400 và AS9100",
+                viettel10: "Làm việc với các nhà cung cấp AMR, làm rõ yêu cầu, mô phỏng nguyên lý hoạt động, giám sát triển khai và tích hợp AMR vào MES",
+                viettel11: "Điều phối các nhà cung cấp trong việc triển khai nhà máy sản xuất mới",
+                viettel12: "Mua sắm, giám sát lắp đặt và cấu hình tất cả cơ sở hạ tầng CNTT địa phương",
+                // Experience details - B.Braun
+                braun1: "Kỹ sư trưởng trong dự án hệ thống điều khiển PC để quản lý cung cấp vật liệu",
+                braun2: "Mô phỏng quy trình sản xuất 3D với phân tích thống kê",
+                braun3: "Ứng dụng nhận diện khuôn mặt để kiểm soát chấm công hàng ngày tại căng tin",
+                braun4: "Yêu cầu trước cho AGV và kho tự động",
+                braun5: "Thư ký cho quản lý chuyển đổi số toàn cầu B. Braun",
+                braun6: "Học trực quan hóa dữ liệu, thị giác máy tính, ISA-95, sản xuất tinh gọn",
+                braun7: "Thực hiện dự án CAPA với mức tiết kiệm chi phí 150K$",
+                braun8: "Thiết kế tủ điều khiển điện và PLC",
+                braun9: "Phát triển và thử nghiệm ứng dụng dựa trên PC WPF",
+                braun10: "Triển khai vào nhà máy với cơ sở dữ liệu địa phương",
+                braun11: "Đào tạo người dùng và giám sát viên",
+                // Experience details - Samsung
+                samsung1: "Đào tạo định hướng và các nguyên tắc cơ bản về máy móc",
+                samsung2: "Kinh nghiệm thực hành: đi dây tủ điều khiển (thiết bị điện và khí nén)",
+                samsung3: "Lập trình PLC, thiết kế HMI và điều khiển PC cho các ứng dụng công nghiệp",
+                samsung4: "Vận hành cánh tay robot (Nachi, ABB) với bộ điều khiển kỹ thuật",
+                samsung5: "Kinh nghiệm thực tế với thị giác camera (Cognex, Keyence)",
+                // Education
+                educationTitle: "Lớp Nâng cao Điều khiển Tự động",
+                universityName: "ĐẠI HỌC BÁCH KHOA HÀ NỘI",
+                cpa: "Điểm trung bình: 3.09/4.0",
+                researchProjects: "Dự án Nghiên cứu – Phòng thí nghiệm Điều khiển Tự động",
+                practicalProjects: "Dự án Thực tế – Trưởng nhóm PLC và Ứng dụng Công nghiệp",
+                professionalCertifications: "Chứng chỉ Nghề nghiệp",
+                vtxCourses: "Khóa học VTX",
+                language: "Kỹ năng Ngôn ngữ",
+                otherAchievements: "Thành tựu khác",
+                // Research projects
+                research1: "Lý thuyết điều khiển trượt phân cấp và mô phỏng MATLAB",
+                research2: "Thiết kế, chế tạo mạch điện tử nhúng/công suất và lập trình với vi điều khiển AVR/PIC/STM/Raspberry Pi",
+                research3: "Lắp ráp, điều khiển và giám sát trực tiếp xe tự hành bánh toàn hướng (AGV)",
+                research4: "Nguyên mẫu giai đoạn đầu của hệ thống từ trường và phát hiện bất thường trong máy móc công nghiệp",
+                // Practical projects
+                practical1: "Cảm biến sóng âm bề mặt (SAW) đo nhiệt thanh cái máy biến áp cho EVN",
+                practical2: "Mạch điện lấy cảm hứng từ PLC giao tiếp với thiết bị hiện trường sử dụng MODBUS/Profibus",
+                practical3: "Hỗ trợ giảng dạy trong các khóa học lập trình PLC và truyền thông công nghiệp",
+                // VTX Courses
+                vtx1: "Chứng chỉ hoàn thành Giám sát sản xuất chuyên nghiệp",
+                vtx2: "Chứng chỉ hoàn thành BSI Lean six sigma Green Belt",
+                // Language skills
+                lang1: "Điểm TOEIC IIG: 945",
+                lang2: "Trình độ cao cấp giao tiếp tiếng Anh và đọc hiểu chủ đề kỹ thuật đương đại",
+                lang3: "Trình độ sơ cấp tiếng Nhật và tiếng Hàn",
+                // Achievements
+                achieve1: "Giải thưởng Triển vọng - FPT Denso Factory Hacks 2023",
+                achieve2: "Chứng chỉ Tham gia – HUST iBuddy Thế hệ Lãnh đạo đầu tiên",
+                achieve3: "Phân tích dữ liệu Google & Trí tuệ kinh doanh Google (Coursera)",
+                // Contact section  
+                contactInfo: "Thông tin Liên hệ",
+                emailTitle: "Email",
+                phoneTitle: "Điện thoại",
+                locationTitle: "Địa điểm", 
+                locationInfo: "Hà Nội - Việt Nam",
+                birthInfo: "Ngày sinh: 05/11/1997",
+                sendMessage: "Gửi tin nhắn",
+                callNow: "Gọi ngay",
+                getInTouch: "Liên hệ",
+                // Date ranges
+                digifactDate: "Tháng 5/2025 – Hiện tại",
+                viettelDate: "Tháng 12/2020 – Tháng 5/2025",
+                braunDate: "Tháng 3/2020 – Tháng 12/2020",
+                samsungDate: "Tháng 6/2019 – Tháng 9/2019",
+                // Skills section
+                programmingLangs: "Ngôn ngữ Lập trình",
+                programmingLangsDetail: "C/C# (WPF), Python",
+                plcHmi: "PLC & HMI",
+                plcHmiDetail: "TIA Portal (Siemens), GX/GT work (Mitsubishi)",
+                database: "Cơ sở Dữ liệu",
+                databaseDetail: "MS SQL Server, PostgresDB, MariaDB",
+                dataAnalytics: "Phân tích Dữ liệu",
+                dataAnalyticsDetail: "PowerBI, Tableau, Minitab",
+                mesSkill1: "Tài liệu từ yêu cầu người dùng đến giải pháp",
+                mesSkill2: "Triển khai và tích hợp giải pháp toàn diện",
+                mesSkill3: "Giải quyết vấn đề và cân bằng khối lượng công việc và kỳ vọng giữa các phòng ban",
+                mesSkill4: "Có thể làm việc theo lịch trình chặt chẽ và đi công tác",
+                requirementAnalysis: "Phân tích Yêu cầu",
+                solutionImplementation: "Triển khai Giải pháp",
+                problemSolving: "Giải quyết Vấn đề", 
+                flexibleWorking: "Làm việc Linh hoạt",
+                productionSim: "Mô phỏng Sản xuất",
+                productionSimDetail: "Factory IO, Visual components, Witness",
+                computerVision: "Thị giác Máy tính",
+                computerVisionDetail: "Nhận dạng khuôn mặt, Phát hiện và phân loại đối tượng (OpenCV, Google Collab)",
+                aiTools: "Công cụ AI",
+                aiToolsDetail: "ChatGPT, GitHub Copilot",
+                projectMgmt: "Quản lý Dự án",
+                projectMgmtDetail: "Trello, Goodday.work",
+                // Soft Skills
+                adaptationSkill: "Phát triển Cá nhân",
+                adaptationDetail: "Thích ứng nhanh và học tập liên tục",
+                teamworkSkill: "Hợp tác",
+                teamworkDetail: "Làm việc nhóm và hợp tác đối ngoại",
+                documentationSkill: "Tài liệu hóa",
+                documentationDetail: "Tài liệu hóa kiến thức",
+                procurementSkill: "Hành chính",
+                procurementDetail: "Công việc giấy tờ mua sắm",
+                leadershipSkill: "Lãnh đạo",
+                leadershipDetail: "Xây dựng tinh thần đồng đội",
+                // Personal info
+                fullName: "Đỗ Gia Đăng"
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Language selector functionality
+        const languageBtn = document.querySelector('.language-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
+        const currentFlag = document.querySelector('.current-flag');
+
+        languageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            languageDropdown.classList.remove('active');
+        });
+
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = option.dataset.lang;
+                
+                // Update active option
+                languageOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Update current flag and text
+                const flagClass = option.querySelector('.flag').classList[1];
+                currentFlag.className = `current-flag flag ${flagClass}`;
+                languageBtn.querySelector('span').textContent = lang.toUpperCase();
+                
+                // Change language
+                changeLanguage(lang);
+                
+                // Close dropdown
+                languageDropdown.classList.remove('active');
+            });
+        });
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            // Update navigation
+            document.querySelector('a[href="#about"]').textContent = t.about;
+            document.querySelector('a[href="#experience"]').textContent = t.experience;
+            document.querySelector('a[href="#skills"]').textContent = t.skills;
+            document.querySelector('a[href="#education"]').textContent = t.education;
+            document.querySelector('a[href="#contact"]').textContent = t.contact;
+            
+            // Update hero section
+            const heroP = document.querySelector('.hero p');
+            if (heroP) heroP.textContent = t.heroSubtitle;
+            
+            const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
+            if (ctaButtons[0]) ctaButtons[0].textContent = t.getInTouch;
+            if (ctaButtons[1]) ctaButtons[1].textContent = t.viewExperience;
+            
+            // Update section titles
+            const sectionTitles = document.querySelectorAll('.section-title h2');
+            if (sectionTitles[0]) sectionTitles[0].textContent = t.aboutMe;
+            if (sectionTitles[1]) sectionTitles[1].textContent = t.professionalExperience;
+            if (sectionTitles[2]) sectionTitles[2].textContent = t.skillsExpertise;
+            if (sectionTitles[3]) sectionTitles[3].textContent = t.educationCertifications;
+            if (sectionTitles[4]) sectionTitles[4].textContent = t.contactInformation;
+            
+            // Update about section
+            const aboutTexts = document.querySelectorAll('.about-content p');
+            if (aboutTexts[0]) aboutTexts[0].textContent = t.aboutText1;
+            if (aboutTexts[1]) aboutTexts[1].textContent = t.aboutText2;
+            
+            // Update elements with data-key attributes
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+            });
+            
+            // Update contact section
+            const contactTitles = document.querySelectorAll('.contact-title');
+            if (contactTitles[0]) contactTitles[0].textContent = t.email;
+            if (contactTitles[1]) contactTitles[1].textContent = t.phone;
+            if (contactTitles[2]) contactTitles[2].textContent = t.location;
+            
+            const contactButtons = document.querySelectorAll('.contact-card .btn');
+            if (contactButtons[0]) contactButtons[0].textContent = t.sendMessage;
+            if (contactButtons[1]) contactButtons[1].textContent = t.callNow;
+            
+            const bornInfo = document.querySelector('.contact-info[style*="font-size"]');
+            if (bornInfo) bornInfo.textContent = t.born;
+            
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        if (savedLang !== 'en') {
+            const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
+            if (savedOption) {
+                savedOption.click();
+            }
+        }
     </script>
 </body>
 </html>
